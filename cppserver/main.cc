@@ -30,7 +30,26 @@ void run()
    drogon::app().addListener("0.0.0.0", PORT);
    drogon::app().loadConfigFile(CONFIG_FILE);
    //drogon::app().loadConfigFile("../config.yaml");
-   LOG_INFO << "C++ server is running on http://localhost:" << PORT;
+   LOG_INFO << "C++ server is running on http://127.0.0.1:" << PORT;
+   drogon::app().registerPreRoutingAdvice([](const drogon::HttpRequestPtr &req, 
+                                              drogon::FilterCallback &&stop, 
+                                              drogon::FilterChainCallback &&pass) {
+        if (req->method() == drogon::Options) {
+            auto resp = drogon::HttpResponse::newHttpResponse();
+            resp->addHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+            resp->addHeader("Access-Control-Allow-Methods", "GET,POST,PUT,DELETE,OPTIONS");
+            resp->addHeader("Access-Control-Allow-Headers", "Content-Type,Authorization");
+            resp->setStatusCode(drogon::k204NoContent);
+            stop(resp);
+            return;
+        }
+        pass();
+    });
+
+    drogon::app().registerPostHandlingAdvice([](const drogon::HttpRequestPtr &req, 
+                                                const drogon::HttpResponsePtr &resp) {
+        resp->addHeader("Access-Control-Allow-Origin", "http://localhost:3000");
+    });
    drogon::app().run();
 }
 

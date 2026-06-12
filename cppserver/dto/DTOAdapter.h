@@ -2,17 +2,15 @@
 // Created by Nguyễn Tuấn on 10/06/2026.
 //
 
-#ifndef DROGONSERVER_DTOADAPTER_H
-#define DROGONSERVER_DTOADAPTER_H
+#ifndef CPPSERVER_DTOADAPTER_H
+#define CPPSERVER_DTOADAPTER_H
 
 #include <drogon/drogon.h>
 
-template <typename T>
-class DTOAdapter
-{
+template <typename T> class DTOAdapter {
 public:
-    virtual ~DTOAdapter() = default;
-    static T toDTO(const drogon::HttpRequestPtr &request);
+  virtual ~DTOAdapter() = default;
+  static T toDTO(const drogon::HttpRequestPtr &request);
 };
 
-#endif //DROGONSERVER_DTOADAPTER_H
+#endif // CPPSERVER_DTOADAPTER_H

@@ -2,20 +2,18 @@
 // Created by Nguyễn Tuấn on 09/06/2026.
 //
 
-#ifndef DROGONSERVER_DUPLICATEEXCEPTION_H
-#define DROGONSERVER_DUPLICATEEXCEPTION_H
+#ifndef CPPSERVER_DUPLICATEEXCEPTION_H
+#define CPPSERVER_DUPLICATEEXCEPTION_H
 
 #include "BaseException.h"
 
 #include <string>
 
-class ProductException : public BaseException
-{
+class ProductException : public BaseException {
 public:
-    ProductException(std::string msg) : BaseException(msg)
-    {
-        this->message = msg;
-    }
+  ProductException(std::string msg) : BaseException(msg) {
+    this->message = msg;
+  }
 };
 
-#endif //DROGONSERVER_DUPLICATEEXCEPTION_H
+#endif // CPPSERVER_DUPLICATEEXCEPTION_H

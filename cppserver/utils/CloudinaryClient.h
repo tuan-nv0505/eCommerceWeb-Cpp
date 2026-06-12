@@ -2,27 +2,23 @@
 // Created by Nguyễn Tuấn on 11/06/2026.
 //
 
-#ifndef DROGONSERVER_CLOUDINARYCLIENT_H
-#define DROGONSERVER_CLOUDINARYCLIENT_H
-
+#ifndef CPPSERVER_CLOUDINARYCLIENT_H
+#define CPPSERVER_CLOUDINARYCLIENT_H
 
 #include <string>
 
-class CloudinaryClient
-{
+class CloudinaryClient {
 private:
-    std::string cloudName;
-    std::string apiKey;
-    std::string apiSecret;
-    
+  std::string cloudName;
+  std::string apiKey;
+  std::string apiSecret;
+
 public:
-    CloudinaryClient();
+  CloudinaryClient();
 
-    const std::string& getCloudName() const;
-    const std::string& getAPIKey() const;
-    const std::string& getAPISecret() const;
-
+  const std::string &getCloudName() const;
+  const std::string &getAPIKey() const;
+  const std::string &getAPISecret() const;
 };
 
-
-#endif //DROGONSERVER_CLOUDINARYCLIENT_H
+#endif // CPPSERVER_CLOUDINARYCLIENT_H
